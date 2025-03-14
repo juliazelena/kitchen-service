@@ -4,9 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import UserLoginForm, DishTypeSearchForm
+from kitchen.forms import UserLoginForm, DishTypeSearchForm, DishTypeForm
 from kitchen.models import Dish, DishType, Cook
 
 
@@ -65,3 +66,10 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
         if form.is_valid():
             return queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
+
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    form_class = DishTypeForm
+    success_url = reverse_lazy("desserts:dessert-type-list")
+    template_name = "kitchen/dish_type_form.html"
