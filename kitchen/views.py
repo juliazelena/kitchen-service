@@ -7,9 +7,15 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import UserLoginForm, DishTypeSearchForm, DishTypeForm, \
-    DishSearchForm
 from kitchen.models import Dish, DishType, Cook
+from kitchen.forms import (
+    UserLoginForm,
+    DishTypeSearchForm,
+    DishTypeForm,
+    DishSearchForm,
+    DishForm,
+)
+
 
 
 class UserLoginView(LoginView):
@@ -105,3 +111,16 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         if form.is_valid():
             return queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
+
+
+class DishDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Dish
+
+
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Dish
+    form_class = DishForm
+    success_url = reverse_lazy("kitchen:dish-list")
+    template_name = "kitchen/dish_form.html"
+
+
