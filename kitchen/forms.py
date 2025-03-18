@@ -4,7 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm, UsernameField
 
 from django.utils.translation import gettext_lazy as _
 
-from kitchen.models import DishType, Dish
+from kitchen.models import DishType, Dish, Ingredient
 
 
 class UserLoginForm(AuthenticationForm):
@@ -150,4 +150,35 @@ class DishForm(forms.ModelForm):
 
     class Meta:
         model = Dish
+        fields = "__all__"
+
+
+class IngredientSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control form-control-lg",
+                "placeholder": "Search by name",
+            }
+        ),
+    )
+
+class IngredientForm(forms.ModelForm):
+    name = forms.CharField(
+        label=_("Name:"),
+        max_length=255,
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control border border-primary shadow-sm p-3",
+                "placeholder": "Enter name",
+            }
+        ),
+    )
+
+    class Meta:
+        model = DishType
         fields = "__all__"
