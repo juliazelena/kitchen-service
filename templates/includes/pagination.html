@@ -1,0 +1,61 @@
+{% load query_transform %}
+{% if is_paginated %}
+  <section class="py-7"
+           style="padding-top: 0 !important; padding-bottom: 3rem !important;">
+  <section class="py-5" style="padding-top: 1rem !important; padding-bottom:
+   1rem !important;">
+
+    <div class="container">
+      <div class="row justify-space-between py-0">
+        <div class="col-lg-4 mx-auto p-0">
+          <ul class="pagination pagination-primary m-4" style="justify-content: center">
+            {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?{% query_transform request page=page_obj.previous_page_number %}"
+                   aria-label="Previous">
+                  <span aria-hidden="true"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
+                </a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#"
+                   aria-label="Previous">
+                  <span aria-hidden="true"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
+                </a>
+              </li>
+            {% endif %}
+
+            {% for i in page_obj.paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="page-item active">
+                  <span class="page-link">{{ i }}</span>
+                </li>
+              {% else %}
+                <li class="page-item">
+                  <a class="page-link" href="?{% query_transform request page=i %}">{{ i }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?{% query_transform request page=page_obj.next_page_number %}"
+                   aria-label="Next">
+                  <span aria-hidden="true"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                </a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#"
+                   aria-label="Next">
+                  <span aria-hidden="true"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                </a>
+              </li>
+
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
