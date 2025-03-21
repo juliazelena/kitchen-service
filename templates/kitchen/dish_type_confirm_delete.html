@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}  {% endblock title %}
+
+{% block body %} class="blog-author bg-gray-100" {% endblock body %}
+
+{% block header %}
+
+  {% include 'includes/navigation_light.html' %}
+
+{% endblock header %}
+
+{% block content %}
+
+  <section class="py-sm-7 py-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row py-lg-5 py-3">
+            <div class="col-lg-2 col-md-1 col-sm-0"></div>
+            <div class="col-lg-8 col-md-10 col-sm-12 z-index-2 position-relative px-md-2 px-sm-5 mt-sm-0 mt-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-3">Delete Dish Type</h4>
+              </div>
+              <p>Are you sure you want to delete this dish type: <span style="font-weight: 800">{{ dishtype }}</span>?</p>
+              <p><i>All Dishes with this type will be also deleted!</i></p>
+              <form action="" method="post" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input class="btn btn-primary mt-4" type="submit" value="Yes, delete" style="margin-right: 10px">
+                <a type="" href="{% url 'kitchen:dish-type-list' %}" class="btn btn-dark mt-4">Go
+                  back</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
