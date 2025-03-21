@@ -1,0 +1,160 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %} {% endblock title %}
+
+{% block body %} class="blog-author bg-gray-100" {% endblock body %}
+
+{% block header %}
+
+  {% include 'includes/navigation_light.html' %}
+
+{% endblock header %}
+
+{% block content %}
+
+  <section class="pt-sm-7 pb-sm-1 pt-2 pb-1 position-relative ">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row py-lg-5 py-3">
+            <div class="col-lg-3 col-md-5 position-relative my-auto">
+              <img
+                  class="img border-radius-lg max-width-300 w-200 
+                  position-relative z-index-2"
+                  src="{{ dish.image.url }}"
+                  alt="dish"
+                  onerror="this.onerror=null; this.src='/media/images/default-dish.png';">
+            </div>
+            <div
+                class="col-lg-8 col-md-8 z-index-2 position-relative px-md-2
+                 px-sm-5 mt-sm-0 mt-4">
+              <div
+                  class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">{{ dish.name }}</h4>
+                <div class="d-block">
+                  <a type="button"
+                     class="btn btn-sm btn-outline-dark text-nowrap mb-0"
+                     href="{% url 'kitchen:dish-update' pk=dish.id %}">Update</a>
+                  <a type="button"
+                     class="btn btn-sm btn-outline-primary text-nowrap mb-0"
+                     href="{% url 'kitchen:dish-delete' pk=dish.id %}">Delete</a>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col-auto">
+                  <span class="h6">Type: </span>
+                  <span>{{ dish.dish_type.name }}</span>
+                </div>
+              </div>
+              <p class="text-lg text-primary mb-0">
+                Price for 100 g, $: {{ dish.price }}
+              </p>
+              <p class="text-lg mb-0">
+                {{ dish.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h3>Additional ingredients</h3>
+          <p>If you want to add ingredient you should update this dish </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          {% for ingredient in dish.ingredients.all %}
+            <li class="text-success">{{ ingredient.name }}</li>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-3 col-md-6">
+          <h3 class="mb-5">Cooks</h3>
+        </div>
+        <div class="col-9 col-md-6">
+          {% if dish in user.dishes.all %}
+            <div class="d-block" style="text-align: right">
+              <a href="{% url 'kitchen:remove-add-dish' pk=dish.id %}"
+                 class="btn btn-primary link-to-page">
+                Delete this dish from my list of dishes
+              </a>
+            </div>
+          {% else %}
+            <div class="" style="text-align: right">
+              <a href="{% url 'kitchen:remove-add-dish' pk=dish.id %}"
+                 class="btn btn-dark link-to-page">
+                Add this dish to my list of dishes
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="row">
+        {% if dish.cooks.all %}
+          {% for cook in dish.cooks.all %}
+
+            <div class="col-lg-3 col-sm-6">
+              <div class="card card-plain card-blog">
+                <div class="card-image border-radius-lg position-relative">
+                  <a href="{{ cook.get_absolute_url }}">
+                    <img class="w-100 border-radius-lg move-on-hover shadow"
+                         src="{{ cook.image.url }}" alt="cook"
+                         onerror="this.onerror=null; this.src='media/images/cook.png';">
+                  </a>
+                </div>
+                <div class="card-body px-0">
+                  <h5>
+                    <a href="javascript:"
+                       class="text-dark font-weight-bold">{{ cook.username }}</a>
+                  </h5>
+                  <p>
+                    {{ cook.years_of_experience }}
+                    year{{ cook.years_of_experience|pluralize }} of experience.
+                  </p>
+                  <a href="{{ cook.get_absolute_url }}"
+                     class="text-info icon-move-right">More about this cook
+                    <i class="fas fa-arrow-right text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>No one cook can make this Dish.</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="DishBigModal" style="--bs-modal-width: 600px"
+       tabindex="-1"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body align-content-center">
+          <img
+              class="img border-radius-lg max-width-360 w-100 position-relative z-index-2"
+              src="{{ dish.image.url }}"
+              alt="Dish"
+              onerror="this.onerror=null; this.src='/media/images/default-dish.png';">
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
