@@ -1,0 +1,121 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block body %} class="blog-author bg-gray-100" {% endblock body %}
+
+{% block header %}
+
+  {% include 'includes/navigation_light.html' %}
+
+{% endblock header %}
+
+{% block content %}
+
+  <section class="pt-sm-7 pt-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row py-lg-5 py-3">
+            <div class="col-lg-3 col-md-5 position-relative my-auto">
+                <img
+                    class="img border-radius-lg max-width-200 w-100 position-relative z-index-2"
+                    src="{{ cook.image.url }}"
+                    alt="cook"
+                    onerror="this.onerror=null; this.src='media/images/cook.png';">
+
+            </div>
+            <div
+                class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mt-sm-0 mt-4">
+              <div class="card shadow-lg p-4">
+                <div
+                    class="d-flex justify-content-between align-items-center mb-3">
+                  <div>
+                    {% if cook.first_name and cook.last_name %}
+                      <h3 class="fw-bold text-primary mb-1">Cook:
+                        {{ cook.first_name }} {{ cook.last_name }}</h3>
+                    {% else %}
+                      <h3 class="fw-bold text-primary mb-1">
+                        Cook: {{ cook.username }}</h3>
+                    {% endif %}
+                    <p class="text-muted mb-0">Years of experience:
+                      <strong>{{ cook.years_of_experience }}</strong></p>
+                  </div>
+                  <div class="btn-group">
+                    <a class="btn btn-sm btn-outline-dark d-flex align-items-center"
+                       href="{% url 'kitchen:cook-update' pk=cook.id %}">
+                      <i class="fas fa-edit me-1"></i> Update
+                    </a>
+                    <a class="btn btn-sm btn-outline-dark d-flex align-items-center"
+                       href="{% url 'kitchen:cook-delete' pk=cook.id %}">
+                      <i class="fas fa-trash-alt me-1"></i> Delete
+                    </a>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  {% if cook.username %}
+                    <div class="col-auto">
+                      <span class="h6 text-muted">Username:
+                        <strong>{{ cook.username }}</strong>
+                      </span>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <p class="text-lg mb-0">
+                  <i class="fas fa-id-badge me-1"></i> Cook ID:
+                  <strong>{{ cook.id }}</strong>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="mb-5">My dishes</h3>
+        </div>
+      </div>
+      <div class="row">
+        {% if cook.dishes.all %}
+          {% for dish in cook.dishes.all %}
+            <div class="col-lg-3 col-sm-6">
+              <div class="card card-plain card-blog">
+                <div class="card-image border-radius-lg position-relative">
+                  <a href="{{ dish.get_absolute_url }}">
+                    <img class="w-100 border-radius-lg move-on-hover shadow"
+                         src="{{ dish.image.url }}" alt="cook"
+                         onerror="this.onerror=null; this.src='images/default-dish.png';">
+                  </a>
+                </div>
+
+                <div class="card-body px-0">
+                  <h5 class="text-dark font-weight-bold">
+                    {{ dish.name }}
+                  </h5>
+                  <p>
+                    {{ dish.description }}
+                  </p>
+                  <a href="{{ dish.get_absolute_url }}"
+                     class="text-info icon-move-right">More about this dish
+                    <i class="fas fa-arrow-right text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>There are no dishes yet.
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
