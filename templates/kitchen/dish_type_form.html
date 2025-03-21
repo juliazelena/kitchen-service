@@ -1,0 +1,46 @@
+
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %} Material Kit 2 by Creative Tim {% endblock title %}
+
+{% block body %} class="blog-author bg-gray-100" {% endblock body %}
+
+{% block header %}
+
+  {% include 'includes/navigation_light.html' %}
+
+{% endblock header %}
+
+{% block content %}
+
+  <section class="py-sm-7 py-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row py-lg-5 py-3">
+            <div class="col-lg-2 col-md-1 col-sm-0"></div>
+            <div class="col-lg-8 col-md-10 col-sm-12 z-index-2 position-relative px-md-2 px-sm-5 mt-sm-0 mt-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-3">{{ object|yesno:"Update,Create" }} Dish Type</h4>
+              </div>
+              <form action="" method="post" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input class="btn btn-primary mt-4" type="submit" value="Submit">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+{% block pagination %}
+
+  {% include "includes/pagination.html" %}
+
+{% endblock %}
+
