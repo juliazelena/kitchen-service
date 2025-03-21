@@ -1,0 +1,100 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block body %} class="blog-author bg-gray-100" {% endblock body %}
+
+{% block header %}
+
+  {% include 'includes/navigation_light.html' %}
+
+{% endblock header %}
+
+{% block content %}
+
+  <section class="pt-sm-7 pt-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row pt-lg-5 pt-3">
+            <div class="col-lg-2 col-md-1 col-sm-0"></div>
+            <div
+                class="col-lg-8 col-md-10 col-sm-12 z-index-2 position-relative px-md-2 px-sm-5 mt-sm-0 mt-4">
+              <div
+                  class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Cook List</h4>
+                <div class="d-block">
+                  <a type="button"
+                     class="btn btn-sm btn-outline-info text-nowrap mb-0"
+                     href="{% url 'kitchen:cook-create' %}">Create new cook
+                  </a>
+                </div>
+              </div>
+              <form action="" method="get" class="d-flex justify-content-center mt-5 mb-4">
+                <div class="w-100">
+                  <div class="input-group border-bottom border-primary">
+                    {{ search_form.username }}
+                    <button type="submit" class="btn btn-primary">
+                      🔍
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <br>
+              {% if cook_list %}
+                <div class="row">
+                  <div class="col-1" style="font-weight: 800">
+                    No
+                  </div>
+                  <div class="col-5 col-lg-4" style="font-weight: 800">
+                    Username
+                  </div>
+                  <div class="col-3 col-lg-4" style="font-weight: 800">
+                    Full Name
+                  </div>
+                  <div class="col-3"
+                       style="text-align: center; font-weight: 800">
+                    Years of Experience
+                  </div>
+                  <hr class="horizontal dark mt-2 mb-4">
+                  {% for cook in cook_list %}
+                    <div class="col-1">
+                      {{ page_obj.start_index|add:forloop.counter0 }}
+                    </div>
+                    <div class="col-5 col-lg-4">
+                      <a type="button"
+                         class="text-uppercase fw-bold text-primary-emphasis mb-0"
+                         href="{{ cook.get_absolute_url }}">{{ cook.username }}</a>
+                    </div>
+                    {% if cook.first_name and cook.last_name or cook.first_name or cook.last_name %}
+                      <div class="col-3 col-lg-4">
+                        {{ cook.first_name }} {{ cook.last_name }}
+                      </div>
+                    {% else %}
+                      <div class="col-3 col-lg-4 text-lighter">
+                        Not provided
+                      </div>
+                    {% endif %}
+                    <div class="col-3" style="text-align: center">
+                      {{ cook.years_of_experience }}
+                    </div>
+                    <hr>
+                  {% endfor %}
+                </div>
+              {% else %}
+                <p>There are no cooks.</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+{% block pagination %}
+
+  {% include "includes/pagination.html" %}
+
+{% endblock %}
+
