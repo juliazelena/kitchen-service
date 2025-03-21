@@ -17,7 +17,7 @@ class CookAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (("Additional info", {"fields": (
         "years_of_experience",)}),)
     add_fieldsets = UserAdmin.add_fieldsets + (("Additional info", {"fields": (
-        "first_name", "last_name", "image",)}),)
+        "first_name", "last_name", "image", "years_of_experience",)}),)
 
 
 admin.site.register(DishType)
