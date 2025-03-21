@@ -8,7 +8,7 @@
         <div class="container-fluid px-0">
           <a class="navbar-brand font-weight-bolder ms-sm-3"
              href="{% url 'kitchen:index' %}" rel="tooltip"
-             title="Designed and Coded by Mate and Liliya"
+             title="Designed and Coded by Mate and Yulia"
              data-placement="bottom">
             Kitchen Home
           </a>
@@ -26,36 +26,35 @@
           <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100"
                id="navigation">
             <ul class="navbar-nav navbar-nav-hover ms-lg-12 ps-lg-5 w-100">
+
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                    {#                   href="{% url 'desserts:cook-list' %}">#}
-                   Cooks
+                   href="{% url 'kitchen:dish-type-list' %}">Dish Types
                 </a>
               </li>
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                    {#                   href="{% url 'desserts:dessert-list' %}">#}
-                   Dishes
+                   href="{% url 'kitchen:dish-list' %}">Dishes
                 </a>
               </li>
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                    {#                   href="{% url 'desserts:dessert-type-list' %}">#}
-                   Dish Types
+                   href="{% url 'kitchen:ingredient-list' %}">Ingredients
                 </a>
               </li>
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                    {#                   href="{% url 'desserts:ingredient-list' %}">#}
-                   Ingredients
+                   href="{% url 'kitchen:cook-list' %}">Cooks
                 </a>
               </li>
               {% if request.user.is_authenticated %}
                 <li class="nav-item ms-lg-auto">
-                  <a href="{{ user.get_absolute_url }}" 
-                     class="btn btn-sm bg-gradient-primary btn-round">User: {{ user.username }}
+                  <a href="{{ user.get_absolute_url }}"
+                     class="btn btn-sm bg-gradient-primary btn-round px-4">User:
+                    {{ user.username }}
                   </a>
-                  <a class="btn btn-sm bg-gradient-secondary btn-round" href="{% url 'logout' %}">
+                  <a class="btn btn-sm bg-gradient-secondary btn-round text-center"
+                     href="{% url 'logout' %}">
                     <i class="fa fa-sign-out me-1"></i> Logout
                   </a>
                 </li>
