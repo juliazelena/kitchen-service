@@ -1,0 +1,97 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}  {% endblock title %}
+
+{% block body %} class="blog-author bg-gray-100" {% endblock body %}
+
+{% block header %}
+
+  {% include 'includes/navigation_light.html' %}
+
+{% endblock header %}
+
+{% block content %}
+
+  <section class="pt-sm-7 pt-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row pt-lg-5 pt-3">
+            <div class="col-lg-2 col-md-1 col-sm-0"></div>
+            <div class="col-lg-8 col-md-10 col-sm-12 z-index-2 position-relative px-md-2 px-sm-5 mt-sm-0 mt-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="mb-0">Ingredient List</h4>
+                <div class="d-block">
+                  <a type="button" class="btn btn-sm btn-outline-info text-nowrap mb-0"
+                     href="{% url 'kitchen:ingredient-create' %}">Create new ingredient
+                  </a>
+                </div>
+              </div>
+              <form action="" method="get" class="d-flex justify-content-center mt-5 mb-4">
+                <div class="w-100">
+                  <div class="input-group border-bottom border-primary">
+                    {{ search_form.name }}
+                    <button type="submit" class="btn btn-primary">
+                      🔍
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <br>
+              {% if ingredient_list %}
+                <div class="row">
+                  <div class="col-1" style="font-weight: 800">
+                    No
+                  </div>
+                  <div class="col-3 col-md-5" style="font-weight: 800">
+                    Name
+                  </div>
+                  <div class="col-4 col-md-3" style="text-align: center; font-weight: 800">  
+                    Update
+                  </div>
+                  <div class="col-4 col-md-3" style="text-align: center; font-weight: 800">
+                    Delete
+                  </div>
+                  <hr class="horizontal dark mt-2 mb-4">
+                  {% for ingredient in ingredient_list %}
+                    <div class="col-1">
+                      {{ page_obj.start_index|add:forloop.counter0 }}
+                    </div>
+                    <div class="col-3 col-md-5">
+                      {{ ingredient.name }}
+                    </div>
+                    <div class="col-4 col-md-3" style="text-align: center">
+                      <a type="button" class="btn btn-sm btn-outline-dark text-nowrap mb-0"
+                         href="{% url 'kitchen:ingredient-update' pk=ingredient.id %}">
+                        Update
+                      </a>
+                    </div>
+                    <div class="col-4 col-md-3" style="text-align: center">
+                      <a type="button" class="btn btn-sm btn-outline-primary text-nowrap mb-0"
+                         href="{% url 'kitchen:ingredient-delete' pk=ingredient.id %}">
+                        Delete
+                      </a>
+                    </div>
+                    <hr>
+                  {% endfor %}
+                </div>
+
+              {% else %}
+                <p>There are no ingredients in this hub yet.</p>
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+{% block pagination %}
+
+  {% include "includes/pagination.html" %}
+
+{% endblock %}
