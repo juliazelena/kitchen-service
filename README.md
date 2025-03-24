@@ -63,8 +63,8 @@ python manage.py runserver
 Try the live demo: [Visit Kitchen Service](http://localhost:8000/kitchen/)
 
 ## Screenshots
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
+![img_2.png](media/readme/img_2.png)
+![img_3.png](media/readme/img_3.png)
 
 ## DB-structure
-![img_5.png](img_5.png)
+![img_5.png](media/readme/img_5.png)
