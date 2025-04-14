@@ -23,7 +23,7 @@ from kitchen_service import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("kitchen/",include("kitchen.urls", namespace="kitchen")),
+    path("",include("kitchen.urls", namespace="kitchen")),
     path("accounts/login/", UserLoginView.as_view(), name="login"),
     path("accounts/logout/", logout_view, name="logout")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
