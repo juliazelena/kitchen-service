@@ -26,4 +26,4 @@ urlpatterns = [
     path("",include("kitchen.urls", namespace="kitchen")),
     path("accounts/login/", UserLoginView.as_view(), name="login"),
     path("accounts/logout/", logout_view, name="logout")
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.base.MEDIA_URL, document_root=settings.base.MEDIA_ROOT)
