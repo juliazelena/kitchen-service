@@ -41,4 +41,4 @@ AWS_STORAGE_BUCKET_NAME = "my-kitchen-media"
 AWS_S3_REGION_NAME = "eu-central-1"
 AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
 
-MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+MEDIA_URL = f"https://kitchen-media.s3.eu-central-1.amazonaws.com/"
