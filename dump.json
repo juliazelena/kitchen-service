@@ -1,0 +1,674 @@
+[
+{
+    "model": "kitchen.dishtype",
+    "pk": 1,
+    "fields": {
+        "name": "Soup"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 2,
+    "fields": {
+        "name": "Salad"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 3,
+    "fields": {
+        "name": "Main Dish"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 4,
+    "fields": {
+        "name": "Side Dish"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 5,
+    "fields": {
+        "name": "Dessert"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 6,
+    "fields": {
+        "name": "Appetizer"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 7,
+    "fields": {
+        "name": "Beverage"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 8,
+    "fields": {
+        "name": "Fast Food"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 9,
+    "fields": {
+        "name": "Pasta"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 10,
+    "fields": {
+        "name": "Seafood"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 11,
+    "fields": {
+        "name": "Grill"
+    }
+},
+{
+    "model": "kitchen.dishtype",
+    "pk": 12,
+    "fields": {
+        "name": "Vegetarian"
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 1,
+    "fields": {
+        "name": "Tomato Soup",
+        "description": "A classic tomato soup with basil.",
+        "price": "4.99",
+        "image": "images/tomato-soup.jpg",
+        "dish_type": 1,
+        "cooks": [
+            10,
+            7,
+            3
+        ],
+        "ingredients": [
+            4,
+            8
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 2,
+    "fields": {
+        "name": "Chicken Salad",
+        "description": "Fresh greens with grilled chicken and dressing.",
+        "price": "6.99",
+        "image": "images/default_dish.png",
+        "dish_type": 2,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 3,
+    "fields": {
+        "name": "Steak",
+        "description": "Juicy grilled steak with spices.",
+        "price": "14.99",
+        "image": "images/default_dish.png",
+        "dish_type": 3,
+        "cooks": [
+            6,
+            5
+        ],
+        "ingredients": [
+            8
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 4,
+    "fields": {
+        "name": "French Fries",
+        "description": "Crispy golden potato fries.",
+        "price": "3.99",
+        "image": "images/default_dish.png",
+        "dish_type": 4,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 5,
+    "fields": {
+        "name": "Chocolate Cake",
+        "description": "Rich chocolate cake with frosting.",
+        "price": "5.99",
+        "image": "images/default_dish.png",
+        "dish_type": 5,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 6,
+    "fields": {
+        "name": "Bruschetta",
+        "description": "Grilled bread with tomato and basil.",
+        "price": "4.49",
+        "image": "images/default_dish.png",
+        "dish_type": 6,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 7,
+    "fields": {
+        "name": "Lemonade",
+        "description": "Refreshing homemade lemonade.",
+        "price": "2.99",
+        "image": "images/default_dish.png",
+        "dish_type": 7,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 8,
+    "fields": {
+        "name": "Cheeseburger",
+        "description": "Beef burger with cheese and sauce.",
+        "price": "7.99",
+        "image": "images/default_dish.png",
+        "dish_type": 8,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 9,
+    "fields": {
+        "name": "Spaghetti Bolonieze",
+        "description": "Pasta with bacon and creamy sauce.",
+        "price": "8.99",
+        "image": "images/spageti_bolon.jpg",
+        "dish_type": 9,
+        "cooks": [
+            10
+        ],
+        "ingredients": [
+            6,
+            7,
+            9
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 10,
+    "fields": {
+        "name": "Grilled Salmon",
+        "description": "Salmon fillet with lemon butter.",
+        "price": "12.99",
+        "image": "images/default_dish.png",
+        "dish_type": 10,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 11,
+    "fields": {
+        "name": "BBQ Ribs",
+        "description": "Tender ribs with BBQ sauce.",
+        "price": "13.99",
+        "image": "images/default_dish.png",
+        "dish_type": 11,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 12,
+    "fields": {
+        "name": "Vegetarian Pizza",
+        "description": "Pizza with fresh vegetables.",
+        "price": "9.99",
+        "image": "images/default_dish.png",
+        "dish_type": 12,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 13,
+    "fields": {
+        "name": "Minestrone",
+        "description": "Italian vegetable soup.",
+        "price": "5.49",
+        "image": "images/default_dish.png",
+        "dish_type": 1,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 14,
+    "fields": {
+        "name": "Caesar Salad",
+        "description": "Romaine lettuce, parmesan, and croutons.",
+        "price": "6.49",
+        "image": "images/default_dish.png",
+        "dish_type": 2,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 15,
+    "fields": {
+        "name": "Lasagna",
+        "description": "Classic Italian layered pasta dish.",
+        "price": "10.99",
+        "image": "images/default_dish.png",
+        "dish_type": 3,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 16,
+    "fields": {
+        "name": "Garlic Bread",
+        "description": "Toasted bread with garlic and butter.",
+        "price": "3.49",
+        "image": "images/default_dish.png",
+        "dish_type": 4,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 17,
+    "fields": {
+        "name": "Tiramisu",
+        "description": "Italian dessert with coffee and mascarpone.",
+        "price": "6.99",
+        "image": "images/tiramisu.png",
+        "dish_type": 5,
+        "cooks": [
+            8,
+            5
+        ],
+        "ingredients": [
+            11
+        ]
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 18,
+    "fields": {
+        "name": "Spring Rolls",
+        "description": "Crispy rolls with vegetables.",
+        "price": "4.99",
+        "image": "images/default_dish.png",
+        "dish_type": 6,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 19,
+    "fields": {
+        "name": "Iced Tea",
+        "description": "Cold brewed tea with lemon.",
+        "price": "2.49",
+        "image": "images/default_dish.png",
+        "dish_type": 7,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.dish",
+    "pk": 20,
+    "fields": {
+        "name": "Fish and Chips",
+        "description": "Fried fish with crispy fries.",
+        "price": "9.49",
+        "image": "images/default_dish.png",
+        "dish_type": 8,
+        "cooks": [],
+        "ingredients": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$I4iteGeYVnv1tvWpwjYw0v$KGTRxmq31S0QjuO4VMcjs/oEfADaBdcL0OPUYcill7s=",
+        "last_login": "2025-03-21T17:07:48.565Z",
+        "is_superuser": true,
+        "username": "user.admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "user@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-21T12:43:21.924Z",
+        "years_of_experience": 2,
+        "image": "images/cook_user.jpeg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$bT9Y4Q59Aqqv2jHEOsppYu$DD4habi3bkO7SWuJROBTKevw7ShwyoFi/c+VW9PImJU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "john_doe",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:34.548Z",
+        "years_of_experience": 5,
+        "image": "images/cook.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$ZzxOBXGWiw237X9i29zkMg$NM9vPpEtngW0Fm6dtat4FnjO8jBeOALgtwVhlZIXZ3o=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "mary_smith",
+        "first_name": "Mary",
+        "last_name": "Smith",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:34.783Z",
+        "years_of_experience": 8,
+        "image": "images/cook.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Xmn4SmggFlJazou1lV3F1e$DiRgmfAj2WrLRHtbS6reS97FK62MF5wx29enQQ97kPY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "peter_jones",
+        "first_name": "Peter",
+        "last_name": "Jones",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:35.016Z",
+        "years_of_experience": 3,
+        "image": "images/cook.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$KjbPej4F3Ybiey8xNtAsWa$MLkRI1SRbI68eftLo1UaXmpn3V+lrXoEYkJVK06vJw4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "alice_wonder",
+        "first_name": "Alice",
+        "last_name": "Wonder",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:35.249Z",
+        "years_of_experience": 10,
+        "image": "images/cook.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$7owEQrZQHrneTknQbk8Rj7$Br1NjpE87LmJyG8ip78kB1YNbc/7y13olyZAXu8XLP4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "robert_brown",
+        "first_name": "Robert",
+        "last_name": "Brown",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:35.485Z",
+        "years_of_experience": 6,
+        "image": "images/cook.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$sr5eeRe3z1CGwnQGJiXvcV$bQw3BvDhVqnOqq/ZRjcS45pmbpPtVuO9i25/ri3UQdI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "susan_white",
+        "first_name": "Susan",
+        "last_name": "White",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:35.800Z",
+        "years_of_experience": 4,
+        "image": "images/cook.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$Vss5TbsrLL3ib4z41aLIVr$0zAMeVbSucOY4YEiqsTiaSGSruHMWCNV/JjEBFaenX0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "michael_clark",
+        "first_name": "Michael",
+        "last_name": "Clark",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:36.235Z",
+        "years_of_experience": 7,
+        "image": "images/cook.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$K3JdaqqpkNulIjCNtZMC5h$loPMtLQyE3imK49g/W3ou+7LFosv1vQ3xTgYVRJ1JWg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "linda_davis",
+        "first_name": "Linda",
+        "last_name": "Davis",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:36.695Z",
+        "years_of_experience": 9,
+        "image": "images/cook.png",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.cook",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$ee1sCqgpUJ9ZBeu5mOavEG$aTsKup45nYV65PRjF0FImjAoBrYMYSPMy02rYEanINU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "charles_moore",
+        "first_name": "Charles",
+        "last_name": "Moore",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-03-21T13:16:37.084Z",
+        "years_of_experience": 2,
+        "image": "images/cook_charli.jpg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 1,
+    "fields": {
+        "name": "Tomato"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 2,
+    "fields": {
+        "name": "Cucumber"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 3,
+    "fields": {
+        "name": "Carrot"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 4,
+    "fields": {
+        "name": "Onion"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 5,
+    "fields": {
+        "name": "Garlic"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 6,
+    "fields": {
+        "name": "Pepper"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 7,
+    "fields": {
+        "name": "Salt"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 8,
+    "fields": {
+        "name": "Olive Oil"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 9,
+    "fields": {
+        "name": "Basil"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 10,
+    "fields": {
+        "name": "Parsley"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 11,
+    "fields": {
+        "name": "Lemon"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 12,
+    "fields": {
+        "name": "Chicken"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 13,
+    "fields": {
+        "name": "Beef"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 14,
+    "fields": {
+        "name": "Salmon"
+    }
+},
+{
+    "model": "kitchen.ingredient",
+    "pk": 15,
+    "fields": {
+        "name": "Potato"
+    }
+}
+]
