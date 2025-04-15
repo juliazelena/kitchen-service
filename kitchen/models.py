@@ -17,7 +17,8 @@ class Dish(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     image = models.ImageField(
-        default="images/default_dish.png", upload_to="images/",
+        default="https://kitchen-media.s3.eu-central-1.amazonaws.com/images/default_dish.png",
+        upload_to="https://kitchen-media.s3.eu-central-1.amazonaws.com/images/",
         null=True,
         blank=True
     )
@@ -43,7 +44,8 @@ class Dish(models.Model):
 class Cook(AbstractUser):
     years_of_experience = models.PositiveSmallIntegerField(default=0)
     image = models.ImageField(
-        default="images/cook.png", upload_to="images/",
+        default="https://kitchen-media.s3.eu-central-1.amazonaws.com/images/cook.png",
+        upload_to="https://kitchen-media.s3.eu-central-1.amazonaws.com/images/",
         null=True,
         blank=True
     )
