@@ -60,7 +60,7 @@ python manage.py runserver
 + Password: 1qazcde3
 
 ## Live Demo
-Try the live demo: [Visit Kitchen Service](http://localhost:8000/kitchen/)
+Try the live demo: [Visit Kitchen Service](https://kitchen-service-mcec.onrender.com)
 
 ## Screenshots
 ![img_2.png](media/readme/img_2.png)
